@@ -1,0 +1,28 @@
+{
+  "name": "reversi-grahn",
+  "version": "0.0.1",
+  "description": "Web version of Reversi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanGrahn/reversi-grahn.git"
+  },
+  "keywords": [
+    "reversi",
+    "iangrahn",
+    "tech"
+  ],
+  "author": "Ian E Grahn",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/IanGrahn/reversi-grahn/issues"
+  },
+  "homepage": "https://github.com/IanGrahn/reversi-grahn#readme",
+  "dependencies": {
+    "node-static": "^0.7.11",
+    "socket.io": "^4.6.1"
+  }
+}
