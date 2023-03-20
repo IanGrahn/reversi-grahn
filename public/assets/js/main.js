@@ -2,7 +2,7 @@ function getIRIParameterValue(requestedKey){
     let pageIRI = window.location.search.substring(1);
     let pageIRIVariables = pageIRI.split('&');
     for(let i = 0 ; i < pageIRIVariables.length; i++){
-        let data = pageIRIVaraibles[i].split('=');
+        let data = pageIRIVariables[i].split('=');
         let key = data[0];
         let value = data[1];
         if (key === requestedKey){
