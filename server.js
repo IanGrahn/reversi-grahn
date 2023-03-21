@@ -55,6 +55,13 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         serverLog('a page disconnected from the server: '+socket.id);
     });
+
+
+    /** joinroom command handler */
+
+    socket.on('join_room', () => {
+        serverLog('Server received a command','\'join_room\'',JSON.stringify(payload));
+    });
 });
 
 
