@@ -43,6 +43,3 @@ $( () => {
     console.log('**** Client log message, sending \'join_room\' command: '+JSON.stringify(request));
     socket.emit('join_room',request);
 });
-
-
-a
