@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
 
     /** joinroom command handler */
 
-    socket.on('join_room', () => {
+    socket.on('join_room', (payload) => {
         serverLog('Server received a command','\'join_room\'',JSON.stringify(payload));
     });
 });
