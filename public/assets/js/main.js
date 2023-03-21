@@ -22,9 +22,10 @@ let chatRoom = 'Lobby';
 
 
 
-
-
+/*
 $('#messages').prepend('<b>'+username+':</b>');
+
+*/
 
 /**setup sotkcet.io connection */
 let socket = io();
@@ -39,7 +40,7 @@ $( () => {
     let request = {};
     request.room = chatRoom;
     request.username = username;
-    console.log('**** Client log messag,e sending \'join_room\' command: '+JSON.stringify(request));
+    console.log('**** Client log message sending \'join_room\' command: '+JSON.stringify(request));
     socket.emit('join_room',request);
 });
 
