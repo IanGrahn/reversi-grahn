@@ -109,7 +109,6 @@ io.on('connection', (socket) => {
                 response.count = sockets.length;
                 /* tell all that a new user joined reversi game */
                 io.of('/').to(room).emit('join_room_response',response);
-                socket.emit('join_room_response',response);
                 serverLog('join_room command succeeded', JSON.stringify(response));
             }
         });
