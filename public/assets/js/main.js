@@ -36,6 +36,8 @@ socket.on('join_room_response', (payload) =>{
     }
     let newString = '<p class=\'join_room_response\'>'+payload.username+' joined the '+payload.room+'. (There are '+payload.count+' users in this room)</p>';
     $('#messages').prepend(newString);
+    
+    console.log('recieved join room response');
 })
 
 function sendChatMessage(){
