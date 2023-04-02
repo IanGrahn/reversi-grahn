@@ -34,6 +34,9 @@ console.log('The server is running');
 /********************************* */
 /* Set up the web socket server */
 
+/**set up registry of player info + their socket id
+ */
+let players = [];
 const { Server } = require("socket.io");
 const io = new Server(app);
 
@@ -52,9 +55,6 @@ io.on('connection', (socket) => {
     serverLog('a page connected to the server: '+socket.id);
 
 
-    socket.on('disconnect', () => {
-        serverLog('a page disconnected from the server: '+socket.id);
-    });
 
 
     /** joinroom command handler */
@@ -102,18 +102,43 @@ io.on('connection', (socket) => {
             serverLog('join_room command failed', JSON.stringify(response));
             }
             else{
-                response = {};
-                response.result = 'success';
-                response.room = room;
-                response.username = username;
-                response.count = sockets.length;
-                /* tell all that a new user joined reversi game */
-                io.of('/').to(room).emit('join_room_response',response);
-                serverLog('join_room command succeeded', JSON.stringify(response));
+                players[socket.id]= {
+                    username: username,
+                    room: room
+                }
+                /**announce all players who else is in room */
+                for (const member of sockets){
+                    response = {
+                        result: 'sucess',
+                        socket_id: member.id,
+                        room: players[member.id].room,
+                        username: players[member.id].username,
+                        count: sockets.length
+                    }
+                    /* tell all that a new user joined reversi game */
+                    io.of('/').to(room).emit('join_room_response',response);
+                    serverLog('join_room command succeeded', JSON.stringify(response));
+                }
             }
         });
     });
 
+    socket.on('disconnect', () => {
+        serverLog('a page disconnected from the server: '+socket.id);
+        if((typeof players[socket.id] != 'undefined') && (players[socket.id] != null)){
+            let payload = {
+                username: players[socket.id].username,
+                room: players[socket.id].room,
+                count: Object.keys(players).length - 1,
+                socket_id: socket.id
+            };
+            let room = players[socket.id].room;
+            delete players[socket.id];
+            /* tell everyone who left the room */
+            io.of("/").to(room).emit('player_disconnected',payload);
+            serverLog('player_disconnected succeeded ',JSON.stringify(payload));
+        }
+    });
 
 
 
