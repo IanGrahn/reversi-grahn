@@ -186,7 +186,7 @@ io.on('connection', (socket) => {
                     result: 'success',
                     socket_id: requested_user
                 }
-                socket.emit("invited_response", response);
+                socket.emit("invite_response", response);
                 response = {
                     result: 'success',
                     socket_id: socket.id
