@@ -177,7 +177,7 @@ io.on('connection', (socket) => {
                     result: 'fail',
                     message: 'the user that was invited is no longer in the room'
                 }
-                socket.emit('invited', response);
+                socket.emit('invite_response', response);
                 serverLog('invite command failed', JSON.stringify(response));
                 return;
             }
@@ -186,7 +186,7 @@ io.on('connection', (socket) => {
                     result: 'success',
                     socket_id: requested_user
                 }
-                socket.emit("invited", response);
+                socket.emit("invited_response", response);
                 response = {
                     result: 'success',
                     socket_id: socket.id
