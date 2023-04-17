@@ -450,7 +450,7 @@ io.on('connection', (socket) => {
             return;
         }
 
-        let username = playeres.username; 
+        let username = players.username; 
         if ((typeof username == 'undefined') || (username === null)){
             response = {};
             response.result = 'fail';
