@@ -95,6 +95,7 @@ io.on('connection', (socket) => {
         io.in(room).fetchSockets().then((sockets)=>{
             serverLog('There are '+sockets.length+' clients in the room, '+room);
             if ((typeof sockets == 'undefined') || (sockets === null) || !sockets.includes(socket)){
+        
                 response = {};
                 response.result = 'fail';
                 response.message = 'Server internal error joining chat room';
@@ -106,10 +107,11 @@ io.on('connection', (socket) => {
                     username: username,
                     room: room
                 }
+                serverLog("Players",JSON.stringify(players[socket.id]));
                 /**announce all players who else is in room */
                 for (const member of sockets){
                     response = {
-                        result: 'sucess',
+                        result: 'success',
                         socket_id: member.id,
                         room: players[member.id].room,
                         username: players[member.id].username,
@@ -444,13 +446,13 @@ io.on('connection', (socket) => {
         if ((typeof player == 'undefined') || (player === null)){
             response = {};
             response.result = 'fail';
-            response.message = 'play token came from unregistered player';
+            response.message = 'play_token came from unregistered player';
             socket.emit('play_token_response',response);
             serverLog('play_token command failed', JSON.stringify(response));
             return;
         }
 
-        let username = players.username; 
+        let username = player.username; 
         if ((typeof username == 'undefined') || (username === null)){
             response = {};
             response.result = 'fail';
