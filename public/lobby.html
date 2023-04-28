@@ -7,22 +7,35 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carlito:wght@700&display=swap" rel="stylesheet">
     <style>
       .headerrow {
-        background-color: darkseagreen;
+        background-color: rgb(41, 41, 41);
+        color: rgb(255, 255, 255);
+        font-family: 'Carlito', sans-serif;
       }
       #messagePane {
-        background-color: rgb(217, 232, 217);
+        background-color: rgb(189, 189, 189);
+        font-family: 'Carlito', sans-serif;
       }
       .join_room_response, .left_room_response{
-        background-color: rgb(247, 247, 247);
+        background-color: rgb(167, 167, 167);
       }
       .chat_message {
         font-size:125%;
         color: rgb(0, 0, 0)
       }
+      .text{
+        font-family: 'Carlito', sans-serif;
+      }
     </style>
     <title>Reversi: Lobby</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   </head>
 
   <body>
@@ -37,7 +50,7 @@
         <div class="col">
           <div class="row align-items-start justify-content-center">
             <div class="col-md-4">
-              <h4>Players</h4>
+              <h4 class="text">Players</h4>
               <div id="players" class="align-items-end text-right m-3">
               </div>
             </div>

@@ -3,7 +3,7 @@ body {
 }
 
 .headerrow, #messagepane {
-  background-color: darkseagreen;
+  background-color: rgb(40, 40, 40);
 }
 
 .join_room_response, .left_room_response{
@@ -29,4 +29,33 @@ table#game_board td {
 
 td.hovered_over:hover {
     background-image: url('/assets/images/hover.gif');
+}
+
+
+.title {
+  color: rgb(255, 255, 255);
+  font-family: 'Carlito', sans-serif;
+  padding-top: 6px; 
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.bodyText{
+  color: rgb(45, 45, 45);
+  font-family: 'Carlito', sans-serif;
+
+}
+
+
+.messageColor {
+  background-color:rgb(40, 40, 40)
+}
+
+.quitButton {
+  text-shadow: 2px 2px 4px #000000;
+  font-family: 'Carlito', sans-serif;
+}
+
+
+.progress{
+  background-color:rgb(40, 40, 40) ;
 }

@@ -307,10 +307,10 @@ socket.on('game_update', (payload) =>{
     }
 
     if( my_color === 'white'){
-        $("#my_color").html('<h3 id="my_color">I am white</h3>');
+        $("#my_color").html('<h3 id="my_color">Your color: White</h3>');
     }
     else if( my_color === 'black'){
-        $("#my_color").html('<h3 id="my_color">I am black</h3>');
+        $("#my_color").html('<h3 id="my_color">Your color: Black</h3>');
     }
     else {
         $("#my_color").html('<h3 id="my_color">Erro: I don\'t know what color I am</h3>');     
@@ -318,10 +318,10 @@ socket.on('game_update', (payload) =>{
 
 
     if( payload.game.whose_turn === 'white'){
-        $("#my_color").append('<h4 id="my_color">It is white\'s turn</h4>');
+        $("#my_color").append('<h4 id="my_color">Current turn: White</h4>');
     }
     else if( payload.game.whose_turn === 'black'){
-        $("#my_color").append('<h4 id="my_color">It is black\'s turn</h4>');
+        $("#my_color").append('<h4 id="my_color">Current turn: Black</h4>');
     }
     else {
         $("#my_color").append('<h4 id="my_color">Erro: I don\'t know what color I am</h4>');     
